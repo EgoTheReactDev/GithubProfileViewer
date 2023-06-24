@@ -21,7 +21,19 @@ const SearchUser = ({ setUser }) => {
   };
 
 
-  return <div></div>;
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter a GitHub username"
+          value={username}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  );
 };
 
 export default SearchUser;
