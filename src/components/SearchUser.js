@@ -1,38 +1,33 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import { fetchUserData, fetchUserRepositories } from '../GitHubAPI';
 
 const SearchUser = ({ setUser }) => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
 
-  const handleInputChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios
-      .get(`https://api.github.com/users/${username}`)
-      .then((response) => {
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching user data:', error);
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    try {
+      const userData = await fetchUserData(username);
+      const repositoriesData = await fetchUserRepositories(username);
+      setUser({
+        userData,
+        repositoriesData,
       });
+    } catch (error) {
+      console.error(error);
+    }
   };
-
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter a GitHub username"
-          value={username}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+    <form onSubmit={handleSearch}>
+      <input
+        type="text"
+        placeholder="Enter a GitHub username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <button type="submit">Search</button>
+    </form>
   );
 };
 
