@@ -12,7 +12,9 @@ const App = () => {
       {user && (
         <div>
           <UserDetails user={user} />
-          <RepositoryList repositories={user.repositories} />
+          {user.repositories && (
+            <RepositoryList repositories={user.repositories} />
+          )}
         </div>
       )}
     </div>
