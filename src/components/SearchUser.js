@@ -8,6 +8,19 @@ const SearchUser = ({ setUser }) => {
     setUsername(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .get(`https://api.github.com/users/${username}`)
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+  };
+
+
   return <div></div>;
 };
 
