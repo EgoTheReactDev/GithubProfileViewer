@@ -1,10 +1,13 @@
+body{
+  background-color: #f193b4;
+
+}
 
 /* Main container */
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f193b4;
 }
 
 /* Search form */
