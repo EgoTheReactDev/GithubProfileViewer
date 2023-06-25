@@ -1,13 +1,16 @@
-body{
-  background-color: #f193b4;
-
+body {
+  background-color: #000000;
+  color: #f3ca20 !important;
 }
 
 /* Main container */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  height: 100vh;
+  overflow: hidden;
+  color: #f3ca20 !important;
 }
 
 /* Search form */
@@ -15,7 +18,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  width: 50%;
 }
 
 input[type="text"] {
@@ -44,7 +47,9 @@ button[type="submit"]:hover {
 /* User card */
 .user-card {
   text-align: center;
-  margin-bottom: 20px;
+  width: 50%;
+  overflow: scroll;
+  color: #f3ca20 !important;
 }
 
 .user-card img {
@@ -86,17 +91,10 @@ button[type="submit"]:hover {
 }
 
 .repository-list li a {
-  color: #2196f3;
+  color: #f3ca20;
   text-decoration: none;
 }
 
 .repository-list li a:hover {
   text-decoration: underline;
-}
-.mainBody{
-  width: 100%;
-
-}
-.mainBody .left{
-  background-color: #fff !important;
 }
